@@ -30,10 +30,10 @@ if (success):
     bebop.set_max_vertical_speed(1)
 
     # trying out the new hull protector parameters - set to 1 for a hull protection and 0 without protection
-    #bebop.set_hull_protection(1)
+    bebop.set_hull_protection(1)
 
     print("Flying direct: Slow move for indoors")
-    bebop.fly_direct(roll=0, pitch=20, yaw=0, vertical_movement=0, duration=2)
+    bebop.fly_direct(roll=100, pitch=0, yaw=0, vertical_movement=0, duration=2)
 
     bebop.smart_sleep(5)
 

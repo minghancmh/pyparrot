@@ -56,26 +56,26 @@ class WifiConnection:
         self.is_listening = True  # for the UDP listener
         self.ip_address = ip_address
 
-        if (drone_type is "Bebop"):
+        if (drone_type == "Bebop"):
             self.mdns_address = "_arsdk-0901._udp.local."
             #Bebop video streaming
             self.stream_port = 55004
             self.stream_control_port = 55005
-        elif (drone_type is "Anafi"):
+        elif (drone_type == "Anafi"):
             self.mdns_address = "_arsdk-0914._udp.local."
             self.stream_port = 55004
             self.stream_control_port = 55005
-        elif (drone_type is "Bebop2"):
+        elif (drone_type == "Bebop2"):
             self.mdns_address = "_arsdk-090c._udp.local."
             #Bebop video streaming
             self.stream_port = 55004
             self.stream_control_port = 55005
-        elif (drone_type is "Disco"):
+        elif (drone_type == "Disco"):
             self.mdns_address = "_arsdk-090e._udp.local."
             #Bebop video streaming
             self.stream_port = 55004
             self.stream_control_port = 55005
-        elif (drone_type is "Mambo"):
+        elif (drone_type == "Mambo"):
             self.mdns_address = "_arsdk-090b._udp.local."
 
         # map of the data types by name (for outgoing packets)
@@ -315,10 +315,10 @@ class WifiConnection:
             tcp_sock.connect(("192.168.99.3", 44444))
         else:
             if (self.ip_address is None):
-                self.drone_ip = ipaddress.IPv4Address(self.connection_info.address).exploded
+                self.drone_ip = ipaddress.IPv4Address(self.connection_info.addresses).exploded
                 tcp_sock.connect((self.drone_ip, self.connection_info.port))
             else:
-                self.drone_ip = ipaddress.IPv4Address(self.ip_address).exploded
+                self.drone_ip = ipaddress.IPv4Address(self.ip_addresses).exploded
                 tcp_sock.connect((self.drone_ip, 44444))
 
 
